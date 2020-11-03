@@ -1,24 +1,59 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
+| Column     | Type   | Options     |
+| ---------- | ------ | ----------- |
+| nickname   | string | null: false |
+| email      | string | null: false |
+| encrypted_password   | string | null: false |
+| family_name| string | null: false |
+| first_name | string | null: false |
+| family_name_kana | string | null: false |
+| first_name_kana | string | null: false |
+| birth_day| date | null: false |
 
-Things you may want to cover:
+### Association
+- has_many :items
+- has_many :buys
 
-* Ruby version
+## items テーブル
+| Column    | Type       | Options           |
+| --------- | ---------- | ----------------- |
+| name     | string     | null: false |
+| description | text | null: false |
+| category_id | integer | null: false |
+| status_id | integer | null: false |
+| cost_id | integer | null: false |
+| prefectures_id | integer | null: false |
+| days_id | integer | null: false |
+| price | integer | null: false |
+| user | references  | null: false, foreign_key: true |
 
-* System dependencies
+### Association
+- belongs_to :user
+- has_one :buy
 
-* Configuration
+## buys テーブル
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
-* Database creation
+### Association
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
-* Database initialization
+## addresses テーブル
+| Column     | Type   | Options     |
+| ---------- | ------ | ----------- |
+| post_code | string | null: false |
+| prefectures_id | integer | null: false |
+| area   | string | null: false |
+| house_number  | string | null: false |
+| building_name | string |
+| phone_number | string | null: false |
+| buy | references | null: false, foreign_key: true |
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :buy
