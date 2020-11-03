@@ -14,26 +14,26 @@
 
 ### Association
 - has_many :items
-- has_many :buyers
+- has_many :buys
 
 ## items テーブル
 | Column    | Type       | Options           |
 | --------- | ---------- | ----------------- |
 | name     | string     | null: false |
 | description | text | null: false |
-| category | string       | null: false |
-| status | integer | null: false |
-| cost | integer | null: false |
-| area | integer | null: false |
-| days | integer | null: false |
+| category_id | integer | null: false |
+| status_id | integer | null: false |
+| cost_id | integer | null: false |
+| area_id | integer | null: false |
+| days_id | integer | null: false |
 | price | integer | null: false |
 | user | references  | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- belongs_to :buyer
+- has_one :buy
 
-## buyers テーブル
+## buys テーブル
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
@@ -47,13 +47,13 @@
 ## addresses テーブル
 | Column     | Type   | Options     |
 | ---------- | ------ | ----------- |
-| post_code | string | null: false |
-| prefectures | string | null: false |
-| city   | string | null: false |
-| block  | string | null: false |
-| building_name| string |
+| post_code_id | string | null: false |
+| prefectures_id | string | null: false |
+| city_id   | string | null: false |
+| house_number_id  | string | null: false |
+| building_name_id | string |
 | phone_number | string | null: false |
-| buyer | references | null: false, foreign_key: true |
+| buy | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :buyer
+- belongs_to :buy
