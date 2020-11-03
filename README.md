@@ -49,7 +49,7 @@
 | ---------- | ------ | ----------- |
 | post_code | string | null: false |
 | prefectures_id | integer | null: false |
-| area_id   | integer | null: false |
+| area   | string | null: false |
 | house_number  | string | null: false |
 | building_name | string |
 | phone_number | string | null: false |
