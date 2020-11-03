@@ -5,7 +5,7 @@
 | ---------- | ------ | ----------- |
 | nickname   | string | null: false |
 | email      | string | null: false |
-| password   | string | null: false |
+| encrypted_password   | string | null: false |
 | family_name| string | null: false |
 | first_name | string | null: false |
 | family_name_kana | string | null: false |
@@ -47,11 +47,11 @@
 ## addresses テーブル
 | Column     | Type   | Options     |
 | ---------- | ------ | ----------- |
-| post_code_id | string | null: false |
+| post_code | string | null: false |
 | prefectures_id | string | null: false |
-| city_id   | string | null: false |
-| house_number_id  | string | null: false |
-| building_name_id | string |
+| area_id   | string | null: false |
+| house_number  | string | null: false |
+| building_name | string |
 | phone_number | string | null: false |
 | buy | references | null: false, foreign_key: true |
 
