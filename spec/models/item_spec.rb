@@ -35,25 +35,25 @@ RSpec.describe Item, type: :model do
     end
     
     it 'status_idが空だと保存できないこと' do
-      @item.status_id = "1"
+      @item.status_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Status must be other than 1")
     end
     
     it 'cost_idが空だと保存できないこと' do
-      @item.cost_id = "1"
+      @item.cost_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Cost must be other than 1")
     end
     
     it 'prefectures_idが空だと保存できないこと' do
-      @item.prefectures_id = "1"
+      @item.prefectures_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Prefectures must be other than 1")
     end
 
     it 'days_idが空だと保存できないこと' do
-      @item.days_id = "1"
+      @item.days_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Days must be other than 1")
     end
@@ -65,13 +65,13 @@ RSpec.describe Item, type: :model do
     end
     
     it 'priceは300以下だと保存できないこと' do
-      @item.price = "100"
+      @item.price = 100
       @item.valid?
       expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
     end
     
     it 'priceは9999999以上だと保存できないこと' do
-      @item.price = "10000000"
+      @item.price = 10000000
       @item.valid?
       expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
     end
