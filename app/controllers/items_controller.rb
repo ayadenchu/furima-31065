@@ -37,6 +37,12 @@ before_action :set_item, only: [:show, :edit, :update]
     end
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to root_path
+  end
+
   private
   def item_params
     params.require(:item).permit(:name,:description,:category_id,:status_id,:cost_id,:prefectures_id,:days_id,:price,:image).merge(user_id: current_user.id)
