@@ -13,6 +13,6 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
     validates :birth_day
   end
-
+  has_many :buys
   has_many :items
 end
