@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
     if @item.user.id == current_user.id
       redirect_to root_path
     else
-      if @item.buys.nil? 
+      if @item.buy.nil? 
         @order = Order.new
       else
         redirect_to root_path
