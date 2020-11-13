@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
-  has_many :buys
+  has_one :buy
 
   with_options presence: true do
     validates :image
